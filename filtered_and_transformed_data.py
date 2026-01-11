@@ -1,7 +1,7 @@
 import geopandas as gpd
 import pandas as pd
 
-def filtered_and_transformed_osm_data(gdf):
+def filtered_and_transformed_data(gdf):
     """
     Очистим геоданные, удалим лишние столбцы, отфильтруем объекты,
     преобразуем полигоны в центроиды и проверим геометрии на повторяющиеся значения.
