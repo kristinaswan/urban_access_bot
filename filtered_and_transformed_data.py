@@ -44,10 +44,11 @@ def filtered_and_transformed_data(gdf):
 
     # Функция для преобразования полигонов в центроиды
     def poly_to_centroid(geom):
-        """
-        Преобразуем полигоны в их центроиды.
-        """
-        return geom.centroid if isinstance(geom, gpd.geoseries.Polygon) else geom
+        """Преобразуем полигоны в их центроиды."""
+        if geom.type == 'Polygon':
+            return geom.centroid
+        else:
+            return geom
 
     # Преобразуем оставшиеся полигоны в центроиды
     final_gdf["geometry"] = final_gdf["geometry"].apply(poly_to_centroid)
